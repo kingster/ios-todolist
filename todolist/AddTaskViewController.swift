@@ -10,7 +10,7 @@ import UIKit
 
 class AddTaskViewController: UIViewController, UINavigationControllerDelegate {
     
-    var newTask : Task?
+    var newTask : task?
 
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
@@ -19,10 +19,11 @@ class AddTaskViewController: UIViewController, UINavigationControllerDelegate {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    
     // This method lets you configure a view controller before it's presented.
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if saveButton === sender {
-            newTask = Task()
+            newTask = task(title: "New Task \(1)", desc: "Some Desc")
         }
     }
     

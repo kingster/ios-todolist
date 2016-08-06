@@ -10,8 +10,13 @@ import UIKit
 
 class TaskListViewController: UITableViewController {
 
+    @IBOutlet var taskTable: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+       // taskTable.reloadData()
+
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -28,24 +33,27 @@ class TaskListViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return taskMgr.tasks.count
     }
 
-    /*
+   
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
 
         // Configure the cell...
+        
+        cell.textLabel?.text =  taskMgr.tasks[indexPath.row].title
+        //cell.detailTextLabel?.text = taskMgr.tasks[indexPath.row].desc
+
 
         return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.
@@ -95,6 +103,10 @@ class TaskListViewController: UITableViewController {
     @IBAction func unwindToTasksList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.sourceViewController as? AddTaskViewController, task = sourceViewController.newTask {
             print(task)
+            taskMgr.addTask(task.title, desc: task.desc)
+            print(taskMgr.tasks.count)
+            taskTable.reloadData()
+
 //            let newIndexPath = NSIndexPath(forRow: meals.count, inSection: 0)
 //            meals.append(meal)
 //            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
