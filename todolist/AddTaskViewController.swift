@@ -10,9 +10,13 @@ import UIKit
 
 class AddTaskViewController: UIViewController, UINavigationControllerDelegate {
     
-    var newTask : task?
+    var newTask : Task?
 
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    @IBOutlet weak var titleText: UITextField!
+    
+    @IBOutlet weak var descText: UITextView!
     
     // MARK: Navigation
     @IBAction func cancel(sender: AnyObject) {
@@ -23,8 +27,9 @@ class AddTaskViewController: UIViewController, UINavigationControllerDelegate {
     // This method lets you configure a view controller before it's presented.
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if saveButton === sender {
-            newTask = task(title: "New Task \(1)", desc: "Some Desc")
-        }
+            
+            newTask = Task(title: titleText.text! ,  desc: descText.text)
+         }
     }
     
     override func viewDidLoad() {

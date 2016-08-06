@@ -15,7 +15,9 @@ class TaskListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       // taskTable.reloadData()
+        // Load any saved data
+        taskMgr.restore()
+        taskTable.reloadData()
 
 
         // Uncomment the following line to preserve selection between presentations
@@ -48,7 +50,7 @@ class TaskListViewController: UITableViewController {
         // Configure the cell...
         
         cell.textLabel?.text =  taskMgr.tasks[indexPath.row].title
-        //cell.detailTextLabel?.text = taskMgr.tasks[indexPath.row].desc
+        cell.detailTextLabel?.text = taskMgr.tasks[indexPath.row].desc
 
 
         return cell
@@ -63,17 +65,19 @@ class TaskListViewController: UITableViewController {
     }
     */
 
-    /*
+ 
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
+            taskMgr.remove(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
         } else if editingStyle == .Insert {
+            //Not supported
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+   
 
     /*
     // Override to support rearranging the table view.
@@ -103,13 +107,13 @@ class TaskListViewController: UITableViewController {
     @IBAction func unwindToTasksList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.sourceViewController as? AddTaskViewController, task = sourceViewController.newTask {
             print(task)
-            taskMgr.addTask(task.title, desc: task.desc)
-            print(taskMgr.tasks.count)
+            taskMgr.save(task)
+            
+            // Add a new meal.
+            //let newIndexPath = NSIndexPath(forRow: taskMgr.tasks.count, inSection: 0)
+            //tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+            
             taskTable.reloadData()
-
-//            let newIndexPath = NSIndexPath(forRow: meals.count, inSection: 0)
-//            meals.append(meal)
-//            tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
         }
 
     }
