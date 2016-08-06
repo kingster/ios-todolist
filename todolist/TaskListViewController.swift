@@ -8,9 +8,10 @@
 
 import UIKit
 
-class TaskListViewController: UITableViewController {
+class TaskListViewController: UITableViewController, TaskUpdateDelegate {
 
     @IBOutlet var taskTable: UITableView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,8 +19,8 @@ class TaskListViewController: UITableViewController {
         // Load any saved data
         taskMgr.restore()
         taskTable.reloadData()
-
-
+        taskMgr.handler = self
+         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -94,6 +95,17 @@ class TaskListViewController: UITableViewController {
     }
     */
 
+    //MARK : TaskDelegate
+    
+    func onAdd() {
+        taskTable.reloadData()
+    }
+    
+    func onRemove(position:Int) {
+        
+    }
+    
+    
     /*
     // MARK: - Navigation
 
@@ -113,7 +125,6 @@ class TaskListViewController: UITableViewController {
             //let newIndexPath = NSIndexPath(forRow: taskMgr.tasks.count, inSection: 0)
             //tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
             
-            taskTable.reloadData()
         }
 
     }

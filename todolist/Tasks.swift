@@ -9,6 +9,10 @@
 import UIKit
 import CoreData
 
+protocol TaskUpdateDelegate{
+    func onAdd()
+    func onRemove(position:Int)
+}
 
 class Task: NSObject, NSCoding {
     
@@ -48,11 +52,13 @@ class Task: NSObject, NSCoding {
 
 class TaskManager: NSObject{
     var tasks = [Task]()
+    var handler: TaskUpdateDelegate?
     
     
     func save(_task: Task) {
         tasks.append(_task)
         sync()
+        handler?.onAdd()
     }
     
     func sync(){
@@ -65,6 +71,7 @@ class TaskManager: NSObject{
     func remove(position:Int){
         tasks.removeAtIndex(position)
         sync()
+        handler?.onRemove(position)
     }
     
     func getAll() -> [Task]?{
