@@ -264,7 +264,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = todolist/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = in.kinshuk.learn.todolist;
+				PRODUCT_BUNDLE_IDENTIFIER = in.kinshuk.learn.todolist.001;
 				PRODUCT_NAME = "Todo List";
 			};
 			name = Debug;
@@ -275,7 +275,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = todolist/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = in.kinshuk.learn.todolist;
+				PRODUCT_BUNDLE_IDENTIFIER = in.kinshuk.learn.todolist.001;
 				PRODUCT_NAME = "Todo List";
 			};
 			name = Release;
