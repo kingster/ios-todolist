@@ -15,6 +15,7 @@
 		B301F5941D561F12003C9EA9 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B301F5931D561F12003C9EA9 /* AddTaskViewController.swift */; };
 		B301F5961D56230E003C9EA9 /* Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = B301F5951D56230E003C9EA9 /* Tasks.swift */; };
 		B301F59C1D5627C1003C9EA9 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B301F59B1D5627C1003C9EA9 /* TaskListViewController.swift */; };
+		B301F59E1D56761F003C9EA9 /* PaddedTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = B301F59D1D56761F003C9EA9 /* PaddedTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		B301F5931D561F12003C9EA9 /* AddTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		B301F5951D56230E003C9EA9 /* Tasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tasks.swift; sourceTree = "<group>"; };
 		B301F59B1D5627C1003C9EA9 /* TaskListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
+		B301F59D1D56761F003C9EA9 /* PaddedTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddedTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				B301F58A1D560DFE003C9EA9 /* LaunchScreen.storyboard */,
 				B301F58D1D560DFE003C9EA9 /* Info.plist */,
 				B301F5851D560DFE003C9EA9 /* todolist.xcdatamodeld */,
+				B301F59D1D56761F003C9EA9 /* PaddedTextField.swift */,
 			);
 			path = todolist;
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B301F5871D560DFE003C9EA9 /* todolist.xcdatamodeld in Sources */,
+				B301F59E1D56761F003C9EA9 /* PaddedTextField.swift in Sources */,
 				B301F5941D561F12003C9EA9 /* AddTaskViewController.swift in Sources */,
 				B301F5961D56230E003C9EA9 /* Tasks.swift in Sources */,
 				B301F57F1D560DFE003C9EA9 /* AppDelegate.swift in Sources */,

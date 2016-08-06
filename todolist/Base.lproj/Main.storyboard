@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Task Items-->
@@ -73,26 +72,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3BU-7y-M86">
-                                <rect key="frame" x="60" y="114" width="480" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="3BU-7y-M86" customClass="PaddedTextField" customModule="Todo_List" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="122" width="600" height="40"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="6wc-tW-xCd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dZV-hI-vur">
-                                <rect key="frame" x="60" y="171" width="480" height="67"/>
-                                <color key="backgroundColor" red="0.93257117146596857" green="0.93257117146596857" blue="0.93257117146596857" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TITLE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JK1-FY-gL3">
+                                <rect key="frame" x="22" y="94" width="40" height="18"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DESCRIPTION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uay-bH-l6z">
+                                <rect key="frame" x="20" y="192" width="97.5" height="18"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dZV-hI-vur">
+                                <rect key="frame" x="0.0" y="220" width="600" height="150"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="IWa-NZ-sHa"/>
+                                    <constraint firstAttribute="height" constant="150" id="cVF-B1-6z3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="dZV-hI-vur" firstAttribute="top" secondItem="3BU-7y-M86" secondAttribute="bottom" constant="27" id="0y9-yf-1i5"/>
-                            <constraint firstItem="3BU-7y-M86" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="40" id="2Xg-3H-mSi"/>
-                            <constraint firstItem="3BU-7y-M86" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="FEE-LR-zGj"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="dZV-hI-vur" secondAttribute="trailing" constant="40" id="fXr-k1-2dC"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="3BU-7y-M86" secondAttribute="trailing" constant="40" id="mPx-CH-oA2"/>
-                            <constraint firstItem="dZV-hI-vur" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="40" id="wjU-y2-oW5"/>
+                            <constraint firstItem="JK1-FY-gL3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="4Hb-an-q2C"/>
+                            <constraint firstItem="dZV-hI-vur" firstAttribute="top" secondItem="uay-bH-l6z" secondAttribute="bottom" constant="10" id="F97-LG-WYT"/>
+                            <constraint firstItem="uay-bH-l6z" firstAttribute="top" secondItem="3BU-7y-M86" secondAttribute="bottom" constant="30" id="Itc-wO-N3u"/>
+                            <constraint firstItem="3BU-7y-M86" firstAttribute="top" secondItem="JK1-FY-gL3" secondAttribute="bottom" constant="10" id="U3Y-tC-Onh"/>
+                            <constraint firstAttribute="trailing" secondItem="3BU-7y-M86" secondAttribute="trailing" id="VPO-We-mPB"/>
+                            <constraint firstItem="JK1-FY-gL3" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="22" id="WGp-Xe-iSL"/>
+                            <constraint firstAttribute="trailing" secondItem="dZV-hI-vur" secondAttribute="trailing" id="Zu7-vf-fyf"/>
+                            <constraint firstItem="dZV-hI-vur" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ayD-Zz-NHm"/>
+                            <constraint firstItem="3BU-7y-M86" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dku-16-jzs"/>
+                            <constraint firstItem="uay-bH-l6z" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="zax-K0-gjC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Add Task" id="8up-3o-m5F">

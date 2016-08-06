@@ -34,6 +34,8 @@ class AddTaskViewController: UIViewController, UINavigationControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //self.descText.contentInset = UIEdgeInsetsMake(0, 10, 0, 5); // top, left, bottom, right
+
         // Do any additional setup after loading the view, typically from a nib.
     }
     
