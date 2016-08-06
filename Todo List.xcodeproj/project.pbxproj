@@ -8,22 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		B301F57F1D560DFE003C9EA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B301F57E1D560DFE003C9EA9 /* AppDelegate.swift */; };
-		B301F5811D560DFE003C9EA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B301F5801D560DFE003C9EA9 /* ViewController.swift */; };
 		B301F5841D560DFE003C9EA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B301F5821D560DFE003C9EA9 /* Main.storyboard */; };
 		B301F5871D560DFE003C9EA9 /* todolist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B301F5851D560DFE003C9EA9 /* todolist.xcdatamodeld */; };
 		B301F5891D560DFE003C9EA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B301F5881D560DFE003C9EA9 /* Assets.xcassets */; };
 		B301F58C1D560DFE003C9EA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B301F58A1D560DFE003C9EA9 /* LaunchScreen.storyboard */; };
+		B301F5941D561F12003C9EA9 /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B301F5931D561F12003C9EA9 /* AddTaskViewController.swift */; };
+		B301F5961D56230E003C9EA9 /* Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = B301F5951D56230E003C9EA9 /* Tasks.swift */; };
+		B301F59C1D5627C1003C9EA9 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B301F59B1D5627C1003C9EA9 /* TaskListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B301F57B1D560DFE003C9EA9 /* todolist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = todolist.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B301F57B1D560DFE003C9EA9 /* Todo List.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Todo List.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B301F57E1D560DFE003C9EA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B301F5801D560DFE003C9EA9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B301F5831D560DFE003C9EA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B301F5861D560DFE003C9EA9 /* todolist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = todolist.xcdatamodel; sourceTree = "<group>"; };
 		B301F5881D560DFE003C9EA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B301F58B1D560DFE003C9EA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B301F58D1D560DFE003C9EA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B301F5931D561F12003C9EA9 /* AddTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
+		B301F5951D56230E003C9EA9 /* Tasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tasks.swift; sourceTree = "<group>"; };
+		B301F59B1D5627C1003C9EA9 /* TaskListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,7 +52,7 @@
 		B301F57C1D560DFE003C9EA9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B301F57B1D560DFE003C9EA9 /* todolist.app */,
+				B301F57B1D560DFE003C9EA9 /* Todo List.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -57,8 +61,10 @@
 			isa = PBXGroup;
 			children = (
 				B301F57E1D560DFE003C9EA9 /* AppDelegate.swift */,
-				B301F5801D560DFE003C9EA9 /* ViewController.swift */,
 				B301F5821D560DFE003C9EA9 /* Main.storyboard */,
+				B301F59B1D5627C1003C9EA9 /* TaskListViewController.swift */,
+				B301F5951D56230E003C9EA9 /* Tasks.swift */,
+				B301F5931D561F12003C9EA9 /* AddTaskViewController.swift */,
 				B301F5881D560DFE003C9EA9 /* Assets.xcassets */,
 				B301F58A1D560DFE003C9EA9 /* LaunchScreen.storyboard */,
 				B301F58D1D560DFE003C9EA9 /* Info.plist */,
@@ -70,9 +76,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B301F57A1D560DFE003C9EA9 /* todolist */ = {
+		B301F57A1D560DFE003C9EA9 /* Todo List */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B301F5901D560DFE003C9EA9 /* Build configuration list for PBXNativeTarget "todolist" */;
+			buildConfigurationList = B301F5901D560DFE003C9EA9 /* Build configuration list for PBXNativeTarget "Todo List" */;
 			buildPhases = (
 				B301F5771D560DFE003C9EA9 /* Sources */,
 				B301F5781D560DFE003C9EA9 /* Frameworks */,
@@ -82,9 +88,9 @@
 			);
 			dependencies = (
 			);
-			name = todolist;
+			name = "Todo List";
 			productName = todolist;
-			productReference = B301F57B1D560DFE003C9EA9 /* todolist.app */;
+			productReference = B301F57B1D560DFE003C9EA9 /* Todo List.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -103,7 +109,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B301F5761D560DFE003C9EA9 /* Build configuration list for PBXProject "todolist" */;
+			buildConfigurationList = B301F5761D560DFE003C9EA9 /* Build configuration list for PBXProject "Todo List" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -116,7 +122,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B301F57A1D560DFE003C9EA9 /* todolist */,
+				B301F57A1D560DFE003C9EA9 /* Todo List */,
 			);
 		};
 /* End PBXProject section */
@@ -140,8 +146,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				B301F5871D560DFE003C9EA9 /* todolist.xcdatamodeld in Sources */,
-				B301F5811D560DFE003C9EA9 /* ViewController.swift in Sources */,
+				B301F5941D561F12003C9EA9 /* AddTaskViewController.swift in Sources */,
+				B301F5961D56230E003C9EA9 /* Tasks.swift in Sources */,
 				B301F57F1D560DFE003C9EA9 /* AppDelegate.swift in Sources */,
+				B301F59C1D5627C1003C9EA9 /* TaskListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,7 +265,7 @@
 				INFOPLIST_FILE = todolist/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = in.kinshuk.learn.todolist;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Todo List";
 			};
 			name = Debug;
 		};
@@ -268,14 +276,14 @@
 				INFOPLIST_FILE = todolist/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = in.kinshuk.learn.todolist;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Todo List";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B301F5761D560DFE003C9EA9 /* Build configuration list for PBXProject "todolist" */ = {
+		B301F5761D560DFE003C9EA9 /* Build configuration list for PBXProject "Todo List" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B301F58E1D560DFE003C9EA9 /* Debug */,
@@ -284,13 +292,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B301F5901D560DFE003C9EA9 /* Build configuration list for PBXNativeTarget "todolist" */ = {
+		B301F5901D560DFE003C9EA9 /* Build configuration list for PBXNativeTarget "Todo List" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B301F5911D560DFE003C9EA9 /* Debug */,
 				B301F5921D560DFE003C9EA9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
