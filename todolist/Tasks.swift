@@ -14,75 +14,37 @@ protocol TaskUpdateDelegate{
     func onRemove(position:Int)
 }
 
-class Task: NSObject, NSCoding {
-    
-    var title: String
-    var desc: String
-    
-    // MARK: Archiving Paths
-    
-    static let DocumentsDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first!
-    static let ArchiveURL = DocumentsDirectory.URLByAppendingPathComponent("tasks")
-    
-    
-    struct PropertyKey {
-        static let titleKey = "title"
-        static let descKey = "desc"
-    }
-    
-    init(title:String, desc:String){
-        self.title = title
-        self.desc = desc
-        super.init()
-    }
-   
-    // MARK: NSCoding
-    func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(title, forKey: PropertyKey.titleKey)
-        aCoder.encodeObject(desc, forKey: PropertyKey.descKey)
-    }
-    
-    required convenience init?(coder aDecoder: NSCoder) {
-        let t = aDecoder.decodeObjectForKey(PropertyKey.titleKey) as! String
-        let d = aDecoder.decodeObjectForKey(PropertyKey.descKey) as! String
-        self.init(title: t,desc: d)
-    }
-}
+class TaskManager {
 
-
-class TaskManager: NSObject{
-    var tasks = [Task]()
     var handler: TaskUpdateDelegate?
     
+    func getTasks() -> [Task]{
+        return taskservice.getAll()
+    }
     
-    func save(_task: Task) {
-        tasks.append(_task)
-        sync()
+    
+    var taskservice:TaskService
+    
+    required init() {
+        // Create an instance of the service.
+        let ctx = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        taskservice = TaskService(context: ctx)
+ 
+    }
+    
+    func save(_task:FakeTask) {
+        taskservice.create(_task.title, desc:_task.desc)
+        taskservice.saveChanges()
         handler?.onAdd()
     }
     
-    func sync(){
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(tasks, toFile: Task.ArchiveURL.path!)
-        if !isSuccessfulSave {
-            print("Failed to save meals...")
-        }
-    }
     
     func remove(position:Int){
-        tasks.removeAtIndex(position)
-        sync()
+        taskservice.delete(taskservice.getAll()[position].objectID)
         handler?.onRemove(position)
     }
     
-    func getAll() -> [Task]?{
-        return NSKeyedUnarchiver.unarchiveObjectWithFile(Task.ArchiveURL.path!) as? [Task]
-    }
-    
-    func restore(){
-        if let values =  getAll() {
-            tasks = values
-        }
-    }
+ 
     
 }
 

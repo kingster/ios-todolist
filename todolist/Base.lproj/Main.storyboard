@@ -25,14 +25,14 @@
                                             <rect key="frame" x="15" y="6" width="43" height="19.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qbp-nk-J1O">
                                             <rect key="frame" x="15" y="25.5" width="40.5" height="13.5"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -46,6 +46,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Todo List" id="8fr-DL-vRz">
+                        <barButtonItem key="leftBarButtonItem" title="Button" id="VLQ-FC-eUr">
+                            <connections>
+                                <action selector="didTabButton:" destination="HKq-76-AJv" id="2WK-xU-RDd"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="yoy-aq-I8L">
                             <connections>
                                 <segue destination="HRP-My-aVl" kind="show" id="iTy-T6-AUi"/>
@@ -63,7 +68,7 @@
         <!--Add Task-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Add Task" id="BYZ-38-t0r" customClass="AddTaskViewController" customModule="Todo_List" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddTaskViewController" title="Add Task" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="AddTaskViewController" customModule="Todo_List" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -97,7 +102,6 @@
                                 <rect key="frame" x="0.0" y="220" width="600" height="150"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="150" id="IWa-NZ-sHa"/>
                                     <constraint firstAttribute="height" constant="150" id="cVF-B1-6z3"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -105,7 +109,7 @@
                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES"/>
                             </textView>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="JK1-FY-gL3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="4Hb-an-q2C"/>
                             <constraint firstItem="dZV-hI-vur" firstAttribute="top" secondItem="uay-bH-l6z" secondAttribute="bottom" constant="10" id="F97-LG-WYT"/>
@@ -133,6 +137,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="descText" destination="dZV-hI-vur" id="L7g-eZ-QHM"/>
+                        <outlet property="descriptionHeight" destination="cVF-B1-6z3" id="bYY-0i-97V"/>
                         <outlet property="saveButton" destination="wjC-Qr-XGv" id="0Yg-X6-VdI"/>
                         <outlet property="titleText" destination="3BU-7y-M86" id="vmA-Ff-37Y"/>
                     </connections>

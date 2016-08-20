@@ -28,6 +28,18 @@ xcuserdata/
 *.dSYM.zip
 *.dSYM
 
+
+*.xcworkspace
+!default.xcworkspace
+xcuserdata
+
+profile
+*.moved-aside
+
+Podfile.lock
+
+Pods
+
 ## Playgrounds
 timeline.xctimeline
 playground.xcworkspace

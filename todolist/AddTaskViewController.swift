@@ -10,7 +10,7 @@ import UIKit
 
 class AddTaskViewController: UIViewController, UINavigationControllerDelegate {
     
-    var newTask : Task?
+    var newTask : FakeTask?
 
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
@@ -18,9 +18,16 @@ class AddTaskViewController: UIViewController, UINavigationControllerDelegate {
     
     @IBOutlet weak var descText: UITextView!
     
+    @IBOutlet weak var descriptionHeight: NSLayoutConstraint!
+    
     // MARK: Navigation
     @IBAction func cancel(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+        
+        descriptionHeight.constant = 100.0
+        self.view.layoutIfNeeded()
+        
+        
+        //dismissViewControllerAnimated(true, completion: nil)
     }
     
     
@@ -28,7 +35,7 @@ class AddTaskViewController: UIViewController, UINavigationControllerDelegate {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if saveButton === sender {
             
-            newTask = Task(title: titleText.text! ,  desc: descText.text)
+            newTask = FakeTask(title: titleText.text! ,  desc: descText.text)
          }
     }
     

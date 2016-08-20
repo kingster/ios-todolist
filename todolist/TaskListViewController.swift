@@ -7,20 +7,36 @@
 //
 
 import UIKit
+import Alamofire
 
 class TaskListViewController: UITableViewController, TaskUpdateDelegate {
 
     @IBOutlet var taskTable: UITableView!
     
+    @IBAction func didTabButton(sender: AnyObject) {
+        
+        Alamofire.request(.GET, "https://httpbin.org/get", parameters: ["foo": "bar"])
+            .responseJSON { response in
+                print(response.request)  // original URL request
+                print(response.response) // URL response
+                print(response.data)     // server data
+                print(response.result)   // result of response serialization
+                
+                if let JSON = response.result.value {
+                    print("JSON: \(JSON)")
+                }
+        }
+//        let sec = self.storyboard?.instantiateViewControllerWithIdentifier("AddTaskViewController")
+//        self.navigationController?.presentViewController(sec!, animated: true, completion: {})
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Load any saved data
-        taskMgr.restore()
         taskTable.reloadData()
         taskMgr.handler = self
-         
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -41,7 +57,7 @@ class TaskListViewController: UITableViewController, TaskUpdateDelegate {
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return taskMgr.tasks.count
+        return taskMgr.getTasks().count
     }
 
    
@@ -50,8 +66,8 @@ class TaskListViewController: UITableViewController, TaskUpdateDelegate {
 
         // Configure the cell...
         
-        cell.textLabel?.text =  taskMgr.tasks[indexPath.row].title
-        cell.detailTextLabel?.text = taskMgr.tasks[indexPath.row].desc
+        cell.textLabel?.text =  taskMgr.getTasks()[indexPath.row].title
+        cell.detailTextLabel?.text = taskMgr.getTasks()[indexPath.row].desc
 
 
         return cell
@@ -98,6 +114,10 @@ class TaskListViewController: UITableViewController, TaskUpdateDelegate {
     //MARK : TaskDelegate
     
     func onAdd() {
+//        tableView.beginUpdates()
+//        let newIndexPath = NSIndexPath(forRow: taskMgr.getTasks().count - 1, inSection: 0)
+//        tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
+//        tableView.endUpdates()
         taskTable.reloadData()
     }
     
@@ -121,9 +141,6 @@ class TaskListViewController: UITableViewController, TaskUpdateDelegate {
             print(task)
             taskMgr.save(task)
             
-            // Add a new meal.
-            //let newIndexPath = NSIndexPath(forRow: taskMgr.tasks.count, inSection: 0)
-            //tableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: .Bottom)
             
         }
 
